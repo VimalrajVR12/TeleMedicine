@@ -1,0 +1,93 @@
+#mainContent>.row>.first_row>div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+#mainContent>.row>.first_row>div>#first_row_left {
+    display: flex;
+    text-align: center;
+    gap: 50px;
+
+}
+
+#mainContent>.row>.first_row>div>#first_row_left>div:nth-child(2) {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+#mainContent>.row>.first_row>div>#first_row_left>div:nth-child(2)>i {
+    transform: translateY(-10px);
+    color: #00d290;
+}
+
+#mainContent>.row>.first_row>div>#first_row_left>div:nth-child(2)>.fa-chevron-down {
+    font-size: xx-small;
+}
+
+#mainContent>.row>.first_row>div>#first_row_left>div:nth-child(2)>p {
+    transform: translateY(-3px);
+}
+
+#mainContent>.row>.first_row>div>#first_row_right>div {
+    display: flex;
+    column-gap: 20px;
+}
+
+#mainContent>.row>.first_row>div>#first_row_right>div>.icons:hover {
+    color: #00d290;
+}
+
+#mainContent>.row>.first_row>div>#first_row_right>div p {
+    font-size: small;
+}
+
+#mainContent>.row>.first_row>div>#first_row_right>div button {
+    border: none;
+    background-color: #00d290;
+    border-radius: 20px;
+    padding: 5px 15px;
+}
+
+
+
+#mainContent>.row>.second_row>.container {
+    display: flex;
+    margin-top: 20px;
+    column-gap: 20px;
+}
+
+#mainContent>.row>.second_row>.container>.image {
+    padding: 10px;
+    display: grid;
+    place-content: center;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+#mainContent>.row>.second_row>.container>.body{
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+#mainContent>.row>.second_row>.container>.body>button{
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    border: none;
+    border-radius: 20px;
+    background-color: transparent;
+    padding: 5px 15px;
+    width: fit-content;
+}
+#mainContent>.row>.second_row>.container>.body>.price{
+    display: flex;
+    column-gap: 10px;
+}
+#mainContent>.row>.second_row>.container>.body>.price>p{
+    text-decoration: line-through;
+    opacity: 0.5;
+}
+.second_row hr{
+    border: none;
+    height: 10px;
+    background-color: rgb(242, 225, 225);
+}
