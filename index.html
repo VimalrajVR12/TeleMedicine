@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>homepage</title>
+    <script src="https://kit.fontawesome.com/0b1bcdd578.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href= ../styles/footer.css>
+</head>
+<body>
+    <div id="footer_import"></div>
+</body>
+<script type="module">
+    import footer from "./scripts/footer.js";
+    let footers = document.getElementById("footer_import");
+    footers.innerHTML = footer();
+    </script>
+</html>
