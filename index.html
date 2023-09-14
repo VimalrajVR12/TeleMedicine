@@ -5,21 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>homepage</title>
     <script src="https://kit.fontawesome.com/0b1bcdd578.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href= ../styles/footer.css>
     <link rel="stylesheet" href="../styles/navbar.css">
+    <link rel="stylesheet" href="../styles/index.css">
+    <link rel="stylesheet" href= ../styles/footer.css>
 </head>
 <body>
+
     <div id="navbar_import"></div>
+
+<div class="home">
+    <div class="hom1">
+        <img src="images/img-1.png" alt="1">
+    </div>
+    <div class="hom2">
+        <div class="hom2-1">
+            <img src="images/img-2.png" alt="">
+        </div>
+        <div class="hom2-2">
+            <img src="images/img-3.png" alt="">
+            <img src="images/img-4.png" alt="">
+            <img src="images/img-5.png" alt="">
+            <img src="images/img-6.png" alt="">
+            <img src="images/img-7.png" alt="">
+            <img src="images/img-8.png" alt="">
+        </div>
+    </div>
+    <div class="hom3">
+        <div class="hom3-1">
+            <img src="images/img-9.png" alt="">
+        </div>
+        <div class="hom3-2"></div>
+        <div class="hom3-3"></div>
+    </div>
+    <div class="hom4">
+        <img src="images/img-10.png" alt="">
+        <img src="images/img-11.png" alt="">
+    </div>
+    <div class="hom5">
+        <img src="images/img-12.png" alt="">
+        <img src="images/img-13.png" alt="">
+    </div>
+</div>
+
     <div id="footer_import"></div>
+
 </body>
 <script type="module">
+
+    import navbar from "./scripts/navbar.js";
+    let navbars = document.getElementById("navbar_import");
+    navbars.innerHTML = navbar();
 
     import footer from "./scripts/footer.js";
     let footers = document.getElementById("footer_import");
     footers.innerHTML = footer();
 
-    import navbar from "./scripts/navbar.js";
-    let navbars = document.getElementById("navbar_import");
-    navbars.innerHTML = navbar();
     </script>
 </html>

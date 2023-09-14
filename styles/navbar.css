@@ -1,6 +1,5 @@
-*{
-  margin: 0;
-  padding: 0;
+.head{
+  margin-top: 15px;
 }
 #search{
     padding: 10px 40px;
@@ -293,6 +292,8 @@ nav{
   display: block;
   margin: 12px 0px 0px 200px;
   }
-
+  .btn-1{
+    margin-right: -100px;
+  }
   }
   

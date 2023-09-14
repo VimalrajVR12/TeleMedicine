@@ -31,15 +31,21 @@
         display: grid;
         grid-template-columns: repeat(1,1fr);
     }
-    .foot1, .foot2{
+    .foot1{
         margin-bottom: 20px;
         margin-top: 40px;
-        margin-left: 20px;
+        margin-left: 50px;
+    }
+    .foot2{
+        margin-bottom: 20px;
+        margin-top: 40px;
+        margin-left: 50px;
     }
     .foot3{
         margin-left: 20px;
+        margin-left: 45px;
     }
     .foot4{
-        margin-left: 10px;
+        margin-left: 50px;
     }
 }

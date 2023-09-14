@@ -78,8 +78,8 @@ function navbar (){
 
     <div class="nav2-2">
         <input type="text" placeholder="Search..." id="search">
-          <i class="fa-solid fa-house fa-2xl" id="btn-2" style="color:#00525d; margin-left:20px ;"></i>
-          <button class="btn-1">Consult Now</button>
+        <i class="fa-solid fa-cart-shopping fa-2xl" style="color: #00525d; margin-left:20px;"></i>
+        <button class="btn-1">Consult Now</button>
       </div>
       
   </div>

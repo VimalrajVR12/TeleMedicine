@@ -1,0 +1,45 @@
+*{
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+}
+.hom1 img{
+    width: 100%;
+    height: 100%;
+    margin-top: 30px;
+}
+.hom2-1 img{
+    width: 100%;
+    height: 100%;
+}
+.hom2-2 {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    margin-left: 50px;
+}
+.hom2-2 img{
+    width: 100%;
+    height: 100%;
+}
+.hom2-2 img:hover {
+    transform: scale(1.1); 
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.hom3 img{
+    width: 100%;
+    height: 100%;
+}
+.hom4 img{
+    width: 100%;
+    height: 100%;
+    margin-top: -10px;
+}
+.hom5 img{
+    width: 100%;
+    height: 100%;
+}
+@media only screen and (max-width: 400px) {
+    .hom2-2{
+        margin-left: 0;
+    }
+}
