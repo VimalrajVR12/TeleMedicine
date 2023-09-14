@@ -6,13 +6,20 @@
     <title>homepage</title>
     <script src="https://kit.fontawesome.com/0b1bcdd578.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href= ../styles/footer.css>
+    <link rel="stylesheet" href="../styles/navbar.css">
 </head>
 <body>
+    <div id="navbar_import"></div>
     <div id="footer_import"></div>
 </body>
 <script type="module">
+
     import footer from "./scripts/footer.js";
     let footers = document.getElementById("footer_import");
     footers.innerHTML = footer();
+
+    import navbar from "./scripts/navbar.js";
+    let navbars = document.getElementById("navbar_import");
+    navbars.innerHTML = navbar();
     </script>
 </html>

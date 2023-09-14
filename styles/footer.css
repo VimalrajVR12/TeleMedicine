@@ -5,10 +5,16 @@
 #foot-a, #foot-b{
     display: flex;
     justify-content: space-around;
-    margin: 50px 0px 50px 0px;
+    margin: 20px 0px 50px 0px;
 }
 #foot-a p, #foot-b p{
     font-size: 20px;
+}
+.foot1,.foot2,.foot3,.foot4{
+    margin-top: 30px;
+}
+.foot1 h2,.foot2 h2,.foot3 h2,.foot4 h2{
+    margin-bottom: 10px;
 }
 @media screen and (max-width: 630px){
     #foot-a{
@@ -24,5 +30,16 @@
     #foot-b{
         display: grid;
         grid-template-columns: repeat(1,1fr);
+    }
+    .foot1, .foot2{
+        margin-bottom: 20px;
+        margin-top: 40px;
+        margin-left: 20px;
+    }
+    .foot3{
+        margin-left: 20px;
+    }
+    .foot4{
+        margin-left: 10px;
     }
 }
