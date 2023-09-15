@@ -1,15 +1,12 @@
 
-let data = {
-    "id" : 1,
-    "name" : "Teenilicious Hand Cream for Women",
-    "description":"Sponsored Teenilicious Hand Cream for Women | Winter Cream for Dry and Rough Hand | Avocado Oil & Vanilla | Vegan | Free from Alcohol, Silicones, Paraben & Sulphates | Skin Moisturizing Cream | All Skins Type - 60gm 4.5 out of 5 stars",
-    "image":"https://m.media-amazon.com/images/I/61GzgXYlQBL._AC_UL320_.jpg",
-    "category" : "Handcare",
-    "weight" : "60g",
-    "type" : "Handcream",
-    "MRP": 325,
-    "price": 159
-    };
+import HandCream from "../components/handcream.js"
+console.log(HandCream);
+
+let dataId = localStorage.getItem("productDetails");
+console.log(dataId);
+let data = HandCream.filter((ele) => {return (ele.id == dataId)})[0];
+console.log(data);
+
 
 
 let secondRow = document.querySelector(".second_row");
@@ -30,12 +27,18 @@ function displayData(data){
 
     let image = create("div", "image");
 
-    let img = create("img", "", "src", data.image);
+    let img = create("img", "zoom", "src", data.image);
+    img.setAttribute("data-magnify-src", data.image)
     img.setAttribute("alt", data.name);
+    img.setAttribute("id", "image");
+    img.style.width = "200px";
+    img.style.height = "250px";
 
     image.append(img);
 
     let body = create("div", "body");
+
+    let lens = create("div", "", "id", "zoom_image");
 
     let name = create("h1", "");
     name.textContent = data.name;
@@ -49,14 +52,15 @@ function displayData(data){
     let sub_div = create("div", "price");
 
     let MRP = create("p", "");
-    MRP.textContent = `₹${data.MRP}`;
+    if(data.MRP)
+        MRP.textContent = `₹${data.MRP}`;
 
     let price = create("h5", "");
     price.textContent = `₹${data.price}`;
 
     sub_div.append(MRP, price);
 
-    body.append(name, btn, wt, sub_div);
+    body.append( name, btn, wt, sub_div);
     main.append(image, body);
 
     let hr = create("hr", "");
@@ -81,3 +85,11 @@ function displayData(data){
     main1.append(h3, p, span);
     thirdRow.append(main1);
 }
+
+
+// Zoom Image Functionalities
+
+$(document).ready(function() {
+  $('.zoom').magnify();
+});
+
