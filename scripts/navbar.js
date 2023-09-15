@@ -14,7 +14,7 @@ function navbar (){
           <label for="close-btn" class="btn close-btn"><i class="fas fa-times"></i></label>
           
           <li>
-            <a href="*****.html" class="desktop-item">Medicines</a>
+            <a href="productpage.html" class="desktop-item">Medicines</a>
             <input type="checkbox" id="showMega">
             <label for="showMega" class="mobile-item">Medicines</label>
             <div class="mega-box">
