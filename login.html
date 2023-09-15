@@ -58,7 +58,7 @@
         console.log(data);
 
         if(data.length > 0){
-            localStorage.setItem("userId", data.id);
+            localStorage.setItem("userId", data[0].id);
             alert("Login Successful");
             window.location.href = "index.html";
         }
