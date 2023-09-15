@@ -10,6 +10,10 @@
 #foot-a p, #foot-b p{
     font-size: 20px;
 }
+#foot-b p{
+    display: flex;
+    align-items: center;
+}
 .foot1,.foot2,.foot3,.foot4{
     margin-top: 30px;
 }
@@ -30,6 +34,12 @@
     #foot-b{
         display: grid;
         grid-template-columns: repeat(1,1fr);
+    }
+    #foot-b p{
+        margin-left: 55px;
+    }
+    #foot-b img{
+        margin-left: 40px;
     }
     .foot1{
         margin-bottom: 20px;
