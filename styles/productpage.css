@@ -37,49 +37,70 @@
     border: none;
     text-align: left;
 }
-#card-list{
-    display: grid;
+#card-list > .row{
+    /* display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+    gap: 10px; */
+    padding-left: 10px;
 }
-#card-list > .card{
+#card-list > .row > .card{
     border-radius: 0;
     padding: 10px;
     border: 3px solid whitesmoke;
 }
-#card-list > .card .icon{
+#card-list > .row > .card .icon{
     font-size: x-large;
     text-align: right;
-    color: #00525d;
-}
-#card-list > .card .icon .i{
     
 }
-#card-list > .card .icon .fa-heart{
+#card-list > .row > .card .icon .fa-heart{
     font-weight: 100;
     font-size: 20px;
+    color: #00525d;
 }
-#card-list > .card .image{
+.changeHeartColor{
+    font-weight: 900;
+    color: red;
+    
+}
+#card-list > .row > .card .image{
     width: 100px;
     height: 150px;
 }
-#card-list > .card .price_div{
+#card-list > .row > .card .price_div{
     display: flex;
     justify-content: center;
     column-gap: 10px;
 }
-#card-list > .card .price_div .MRP{
+#card-list > .row > .card .price_div .MRP{
     text-decoration: line-through;
     opacity: 0.5;
 }
-#card-list > .card .price_div .price{
+#card-list > .row > .card .price_div .price{
     color: #00525d;
     font-weight: 500;
 }
-#card-list > .card .addToCart{
+#card-list > .row > .card .addToCart{
     width: 100%;
     background-color: #00525d;
     color: white;
     height: 40px;
     border: none;
+}
+
+#pagination-wrapper{
+    display: flex;
+    justify-content: center;
+    padding: 10px 10px;
+    column-gap:10px;
+}
+#pagination-wrapper .buttons{
+    border: none;
+    background-color: whitesmoke;
+    color: #00525d;
+    font-weight: 500;
+    padding: 10px;
+    border-radius: 10px;
+    
+    
 }

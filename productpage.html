@@ -25,38 +25,36 @@
         </div>
         <div class="row" id="mainContent">
             <div class="col-3" id="filters">
-                <h4 style="opacity: 0.5;">Products Categories</h4>
+                <h4 style="opacity: 0.5;"></h4>
                 <div class="filter_number">
                     <a class="btn" data-bs-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample">
-                        <p>Handcare</p>
+                        <p>Category</p>
                         <p class="collapseIcon">+</p>
                     </a>
                     <div class="collapse collapseEx" id="collapseExample1">
-                        <div class="card card-body">Hand Cream</div>
-                        <div class="card card-body">Men</div>
-                        <div class="card card-body">Women </div>
+                        <div class="card card-body">Handcare</div>
+                        <div class="card card-body">Cosmetics</div>
+                        <div class="card card-body">Medicine </div>
                     </div>
                 </div>
                 <div class="filter_number">
                     <a class="btn" data-bs-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample">
-                        <p>Cosmetics</p>
+                        <p>Sort by Price</p>
                         <p class="collapseIcon">+</p>
                     </a>
                     <div class="collapse collapseEx" id="collapseExample2">
-                        <div class="card card-body">Hand Cream</div>
-                        <div class="card card-body">Men</div>
-                        <div class="card card-body">Women </div>
+                        <div class="card card-body" id="priceDecs">High to Low</div>
+                        <div class="card card-body" id="priceAsc">Low to high</div>
                     </div>
                 </div>
                 <div class="filter_number">
                     <a class="btn" data-bs-toggle="collapse" href="#collapseExample3" role="button" aria-expanded="false" aria-controls="collapseExample">
-                        <p>Dietry Supplements</p>
+                        <p>Sort by ratings</p>
                         <p class="collapseIcon">+</p>
                     </a>
                     <div class="collapse collapseEx" id="collapseExample3">
-                        <div class="card card-body">Hand Cream</div>
-                        <div class="card card-body">Men</div>
-                        <div class="card card-body">Women </div>
+                        <div class="card card-body" id="ratingDesc">High to Low</div>
+                        <div class="card card-body" id="ratingAsc">Low to High</div>
                     </div>
                 </div>
                 <div class="filter_number">
@@ -65,23 +63,23 @@
                         <p class="collapseIcon">+</p>
                     </a>
                     <div class="collapse collapseEx" id="collapseExample4">
-                        <div class="card card-body">Hand Cream</div>
-                        <div class="card card-body">Men</div>
-                        <div class="card card-body">Women </div>
+                        <div class="card card-body">Cough</div>
+                        <div class="card card-body">Cold</div>
+                        <div class="card card-body">Fever </div>
                     </div>
                 </div>
                 <div class="filter_number">
                     <a class="btn" data-bs-toggle="collapse" href="#collapseExample5" role="button" aria-expanded="false" aria-controls="collapseExample">
-                        <p>Nutrition</p>
+                        <p>Brands</p>
                         <p class="collapseIcon">+</p>
                     </a>
                     <div class="collapse collapseEx" id="collapseExample5">
-                        <div class="card card-body">Hand Cream</div>
-                        <div class="card card-body">Men</div>
-                        <div class="card card-body">Women </div>
+                        <div class="card card-body" id="brand-1"></div>
+                        <div class="card card-body" id="brand-2"></div>
+                        <div class="card card-body" id="brand-3"></div>
                     </div>
                 </div>
-                <div class="filter_number">
+                <!-- <div class="filter_number">
                     <a class="btn" data-bs-toggle="collapse" href="#collapseExample6" role="button" aria-expanded="false" aria-controls="collapseExample">
                         <p>Vitamins & Minerals</p>
                         <p class="collapseIcon">+</p>
@@ -146,10 +144,11 @@
                         <div class="card card-body">Men</div>
                         <div class="card card-body">Women </div>
                     </div>
-                </div>
+                </div> -->
             </div>
             <div class="col-9" id="card-list">
-                
+                <div id="card-list-wrapper"></div>
+                <div id="pagination-wrapper"></div>
             </div>
         </div>
     </div>
