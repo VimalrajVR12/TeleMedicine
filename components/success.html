@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shopping-completed</title>
+
+<style>body {
+    text-align: center;
+    font-family: roboto, sans-serif;
+    /* background-color: aliceblue; */
+
+}
+
+img {
+    width: 200px;
+}
+
+button {
+    background-color: #1a6aa0;
+    border:1px solid #1a6aa0;
+    color: white;
+    padding: 5px;
+    font-size: 16px;
+    border-radius: 6px;
+}</style>
+</head>
+<body>
+    <img src="https://us.v-cdn.net/6033805/uploads/NFFSMTHMR4G8/quaintlikelyflyingfish-max-1mb.gif" alt="">
+    <h2 style="color: #1a6aa0; margin-top: -15px;">thank for ordering .. your medicines 💊 are comming soon</h2>
+    <button  style="padding: 20PX;"type="submit"onclick="btn()">shop again</button>
+   
+    <p>Your order id: <span id='order'></span></p>
+     
+    <img  style="width: 25%;"src="https://img.freepik.com/free-psd/fast-delivery-transport-3d-rendering_1419-2403.jpg?t=st=1694785141~exp=
+   1694785741~hmac=22f8a23643d70f667428cb0849934cba952196523d39e108b39487022bf96c53" alt="">
+   
+</body>
+<script>
+document.getElementById("order").innerHTML = Math.round(Math.random()*3311000);
+
+function btn() {
+    location.replace("index.html")
+}
+    </script>
+</html>

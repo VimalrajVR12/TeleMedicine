@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment page</title>
+   <link rel="stylesheet" href="pay.css">
+</head>
+<body style="font-family: inter, sans-serif;">
+    <div id="navbar_Pay">
+        <nav>
+
+                <div> <img  style=" color: transparent; width: 38PX;"
+                    src="https://cdn-icons-png.flaticon.com/512/4381/4381679.png?ga=GA1.1.1267222109.1691552933"alt="">
+                    <p style="color: rgb(27, 135, 223);">Sign Up</p>
+                </div>
+                <div><img style=" color: transparent; width: 38PX;"  src="https://cdn-icons-png.flaticon.com/512/4381/4381679.png?ga=GA1.1.1267222109.1691552933"
+                    alt="">
+                    <a href="Address.html" style="text-decoration: none; color:rgb(27, 135, 223)"> <p>Address</p> </a>
+                </div>
+                  <div> <img src="https://adn-static1.nykaa.com/media/wysiwyg/Payments/desktop-icons/step-3-icon.svg"
+                    alt="">
+                    <a href="pay.html" style="text-decoration: none; color:rgb(27, 135, 223)"> <p>Payment</p> </a>
+                </div>
+           
+        </nav>
+
+     </div>  
+     <!-- navber_pay Ends-->
+
+     <div id="parent">
+            <div id="text_content">
+                <h1>Choose Payment method</h1>
+                <p id="Detail">Choose a Payment method form below </p>
+            </div>
+
+                <h2> Payment Method Options</h2>
+
+                <div id="payment_methods">
+                    <div id="method">
+                            <div id="credit">
+                                    <img src="https://cdn-icons-png.flaticon.com/128/147/147258.png?ga=GA1.1.1267222109.1691552933"
+                                     alt="">
+                                     <div class="method_name">
+                                        <p class="name_of">Credit/Debit Card</p>
+                                        <p>visa, mastrecard, rupee & more</p>
+                                     </div>
+                                    
+                            </div>
+                            <div id="cash">
+                                <img src="https://cdn-icons-png.flaticon.com/512/639/639365.png?ga=GA1.1.1267222109.1691552933"
+                                 alt="">
+                                 <div class="method_name">
+                                    <p class="name_of">Cash on Delivery</p>
+                                    <p>Pay at your door step</p>
+                                 </div>
+                                
+                            </div>
+                            <div id="upi">
+                                <img src="https://cdn-icons-png.flaticon.com/512/7891/7891205.png?ga=GA1.1.1267222109.1691552933"
+                                 alt="">
+                                 <div class="method_name">
+                                    <p class="name_of">UPI</p>
+                                    <p>GPAY, PhonePay, Paytm, and more</p>
+                                 </div>
+                                
+                            </div>
+                            <div id="netbanking">
+                                <img src="https://cdn-icons-png.flaticon.com/512/2239/2239042.png?ga=GA1.1.1267222109.1691552933"
+                                 alt="" style="width: 20px;">
+                                 <div class="method_name">
+                                    <p class="name_of">NetBanking</p>
+                                    <p>Pay through your favourite Bank</p>
+                                 </div>
+                                
+                            </div>
+                    </div>
+
+                    <div id="display_Add"> 
+                            <!-- <p style="color: rgb(232, 0, 113);">Your contact data </p> -->
+                            
+                    </div>
+
+                    <div id="display_bag">
+                        <div id="bag">
+                            <img style="width: 20px; height:22px;" src="https://cdn-icons-png.flaticon.com/512/4320/4320365.png?ga=GA1.1.1267222109.1691552933"
+                             alt="">
+                             <h3 style="color: rgb(27, 135, 223);">Bag</h3>
+                             <span id="Items" style="margin-left: 100px; margin-top: 20px; font-weight: 600;"> products- </span>
+                        </div>
+                        <div id="price">
+                           <img style="width: 20px; height:22px;" src="https://cdn-icons-png.flaticon.com/512/1001/1001096.png?ga=GA1.1.1267222109.1691552933"
+                             alt="">
+                             <h3 style="color: rgb(27, 135, 223);">Price</h3>
+                             <span id="Grand_total" style="margin-left: 100px; margin-top: 20px; font-weight: 600;"> ₹ </span>
+                        </div>
+                        <div id="authentic">
+                            <p style="color: rgb(27, 135, 223); ">We Give Huge Offers & Coupon Codes Also.</p>
+                            <img style="width: 32px; height:32px;" src="https://cdn-icons-png.flaticon.com/512/791/791979.png?ga=GA1.1.1267222109.1691552933"
+                             alt="" onclick="">
+                        </div>
+
+                        <div style="width: 330px; ;">
+                            <img style="width: 100%; height: 70%; margin-left: -10px;" src="https://consumer-app-images.pharmeasy.in/marketing/comp_50lac.jpg">
+                        </div>
+                </div>
+        </div> 
+    </div>
+</body>
+
+<script>
+
+document.querySelector("#credit").addEventListener("click", showcredit);
+    document.querySelector("#cash").addEventListener("click", showcash);
+    
+
+    function showcredit(){
+        document.querySelector("#display_Add").textContent = "";
+
+       var div = document.createElement("div");     //creating div
+       div.setAttribute("id", "credit_D");
+       div.style.height = "220px";
+       div.style.padding = "10px";
+
+
+       var h4 =document.createElement("h4");        //creating h4 tag
+       h4.setAttribute("id", "credit_h4");
+       h4.textContent = "fill up the credentials";
+       h4.style.fontSize = "20px";
+       h4.style.marginTop = "-4px";
+       h4.style.color="rgb(18, 136, 190)"
+       h4.style.marginLeft = "15%";
+
+
+       var card_Number = document.createElement("input");        //creating input for card number tag
+       card_Number.setAttribute("id", "credit_card_number");
+       card_Number.setAttribute("placeholder", "Card Number");
+       card_Number.style.backgroundColor = "rgb(243, 244, 245)";
+       card_Number.style.border = "rgb(243, 244, 245)";
+       card_Number.style.padding = "14px";
+       card_Number.style.margin = "5px";
+       
+      
+
+       var div2 = document.createElement("div");
+       div2.setAttribute("id", "credit_ex_&_cvv");
+       div2.style.marginBottom = "28px"
+
+
+       var card_ex = document.createElement("input");        //creating input for card Expiry tag
+       card_ex.setAttribute("id", "credit_card_ex");
+       card_ex.setAttribute("placeholder", "Expiry(MM/YY)");
+       card_ex.style.backgroundColor = "rgb(243, 244, 245)";
+       card_ex.style.border = "rgb(243, 244, 245)";
+       card_ex.style.padding = "14px";
+       card_ex.style.margin = "5px";
+      
+
+       var card_cvv = document.createElement("input");       //creating input for card cvv tag
+       card_cvv.setAttribute("id", "credit_card_cvv");
+       card_cvv.setAttribute("placeholder", "CVV");
+       card_cvv.style.backgroundColor = "rgb(243, 244, 245)";
+       card_cvv.style.border = "rgb(243, 244, 245)";
+       card_cvv.style.width = "50px";
+       card_cvv.style.padding = "14px";
+       card_cvv.style.margin = "5px";
+      
+       
+
+       var card_button = document.createElement("a");            //creating button with anchor  tag
+       card_button.setAttribute("id", "credit_card_button");
+       card_button.textContent ="Place Order";
+       card_button.setAttribute("href", "success.html");    
+       card_button.style.backgroundColor = "rgb(18, 136, 190)";
+       card_button.style.border = "rgb(18, 136, 190)";
+       card_button.style.textDecoration = "none";
+       card_button.style.padding = "10px"; 
+       card_button.style.marginLeft = "84px"; 
+       card_button.style.marginTop = "6px";  
+       card_button.style.color = "white";
+       card_button.style.textAlign = "center";
+       
+
+      
+       
+       div2.append(card_ex,card_cvv);       
+        div.append(h4,card_Number,div2,card_button);
+       document.querySelector("#display_Add").append(div);      // appending
+    }
+
+    function showcash(){
+        document.querySelector("#display_Add").textContent = "";
+
+        var h4 =document.createElement("h4");       //creating h4 tag
+       h4.setAttribute("id", "cash_h4");
+       h4.textContent = "Pay at Door Step";
+       h4.style.fontSize = "20px";
+       h4.style.marginTop = "0px";
+       h4.style.color="rgb(18, 136, 190)";
+       h4.style.marginLeft="70px"
+
+
+        var cash_button = document.createElement("a");       //creating button with anchor tag
+        cash_button.setAttribute("id", "credit_card_button");
+        cash_button.textContent =" Place Your Order";
+        cash_button.setAttribute("href", "success.html");        
+        cash_button.style.backgroundColor = "rgb(18, 136, 190)";
+        cash_button.style.border = "rgb(232, 0, 113)";
+        cash_button.style.textDecoration = "none";
+        cash_button.style.padding = "14px 2px 14px 2px";      
+        cash_button.style.color = "white";
+        cash_button.style.textAlign = "center";
+        document.querySelector("#display_Add").append(h4, cash_button);
+    }
+
+
+    var dataFromCart = JSON.parse(localStorage.getItem("cartProducts")) || [];
+
+    var NumberofItems = localStorage.getItem("countitem")
+    document.querySelector("#Items").innerHTML = NumberofItems;
+
+
+//  span grand total
+var GT = localStorage.getItem("cartvalue");
+document.querySelector("#Grand_total").innerHTML = "₹ " + GT;
+
+
+</script>
+</html>
+
