@@ -1,5 +1,5 @@
 document.querySelector("button").addEventListener("click", check);
-var cart = JSON.parse(localStorage.getItem("cartProducts")) || [];
+var cart = JSON.parse(localStorage.getItem("productDetails")) || [];
 
 function getPrdouctCard(name, productQty, discountPrice, productImage, index) {
   console.log(name, productQty, discountPrice, productImage, index);
@@ -61,13 +61,13 @@ const couponHTML = `
 
 
 function updateQty(event, position) {
-  var cart = JSON.parse(localStorage.getItem("cartProducts")) || [];
+  var cart = JSON.parse(localStorage.getItem("productDetails")) || [];
   cart.forEach((item, index) => {
     if (index === position) {
       item.productQty = parseInt(event.target.value);
     }
   });
-  localStorage.setItem("cartProducts", JSON.stringify(cart))
+  localStorage.setItem("productDetails", JSON.stringify(cart))
   displayCart(cart);
   caltotal(cart);
   displayCartItemsCount(cart);
@@ -97,7 +97,7 @@ function displayCartItemsCount(cart) {
 function displayCart(cart) {
   document.querySelector("#bagItems").innerHTML = "";
   cart.map(function (elem, index) {
-    var card = getPrdouctCard(elem.name, elem.productQty || 1, elem.price, elem.image, index);
+    var card = getPrdouctCard(elem.name, elem.productQty || 1, elem.price, elem.image, index); //====this=======
     var div = document.createElement("div");
     div.innerHTML = card;
     document.querySelector("#bagItems").append(div);
@@ -110,9 +110,9 @@ function displayCart(cart) {
 }
 
 function delrow(index) {
-  var cart = JSON.parse(localStorage.getItem("cartProducts")) || [];
+  var cart = JSON.parse(localStorage.getItem("productDetails")) || [];
   cart = cart.filter((item, i) => i !== index);
-  localStorage.setItem("cartProducts", JSON.stringify(cart))
+  localStorage.setItem("productDetails", JSON.stringify(cart))
   displayCart(cart);
   caltotal(cart);
   displayCartItemsCount(cart);
@@ -127,7 +127,7 @@ function delrow(index) {
 }
 var pert = localStorage.getItem("cartvalue");
 function caltotal() {
-  var cart = JSON.parse(localStorage.getItem("cartProducts")) || [];
+  var cart = JSON.parse(localStorage.getItem("productDetails")) || [];
   var carval = 0;
   for (var i = 0; i < cart.length; i++) {
     carval += parseInt(cart[i].price) * (cart[i] && cart[i].productQty || 1);
@@ -139,7 +139,7 @@ function caltotal() {
 }
 
 function check() {
-  var cart = JSON.parse(localStorage.getItem("cartProducts")) || [];
+  var cart = JSON.parse(localStorage.getItem("productDetails")) || [];
   var total = 0;
   cart.forEach((item) => {
     total = total + Number(item.price);
@@ -170,7 +170,7 @@ function check() {
 
 //------------------------------------------------------------------------------ for calling cart---------------------------------------------------------------------------------------------------------------------------------------------------------------
 function showMedCart() {
-  var cart = JSON.parse(localStorage.getItem("cartProducts")) || [];
+  var cart = JSON.parse(localStorage.getItem("productDetails")) || [];
   var offerElement = document.getElementById("Offer");
   if (cart && cart.length > 0) {
     document.getElementById("child").style.display = "none";
