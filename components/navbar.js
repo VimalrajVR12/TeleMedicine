@@ -1,22 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>cart</title>
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="cart.css">
-</head>
-
-<body style="font-family: inter, sans-serif">
-  <button onclick="showMedCart()">Cart</button>
-  <div class="medcart meddoverlay"></div>
-  <div class="medcart meddcartdiv" id="meddcartdiv">
+function navbar(){
+    return `
+    <div id="navbar">
+    <div class="navbar">
+        <div class="navbar_left">
+            <div class="button_toggle">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+            <div class="logo"><a href="./index.html">TELE MEDICINE</a></div>
+            <ul class="links">
+                <li><a href="productpage.html">Medicines</a></li>
+                <li><a href="">Doctors</a></li>
+                <li><a href="">Pharmacy</a></li>
+                <li><a href="">Other Services</a></li>
+            </ul>
+        </div>
+        <div class="navbar_right">
+            <ul class="user"><li><a href="./loginUI.html"></a></li></ul>
+            <div><a href="#"><i class="fa-solid fa-cart-shopping" onclick="showMedCart()"></i></a></div>
+            <div id="cart_page">
+    <div class="medcart meddoverlay"></div>
+    <div class="medcart meddcartdiv" id="meddcartdiv">
     <div class="meddcartinnerdiv">
     <div class="parent">
       <div style="display: flex; justify-content: space-between;">
@@ -71,7 +75,17 @@
     </div>
   </div>
   </div>
-  <script src="cart.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-</body>
-</html>
+  </div>
+        </div>
+    </div>
+    <div class="dropdownMenu">
+        <li><a href="">Medicines</a></li>
+        <li><a href="">Doctors</a></li>
+        <li><a href="">Pharmacy</a></li>
+        <li><a href="">Other Services</a></li>
+    </div>
+</div>
+    `
+}
+
+export default navbar;

@@ -1,0 +1,119 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+li{
+    list-style: none;
+}
+#navbar a{
+    text-decoration: none;
+    color: #00525d;
+    font-size: 1rem;
+    font-weight: 500;
+}
+#navbar a:hover{
+    color: orange;
+}
+
+/* Header */
+#navbar{
+    position: relative;
+    padding: 0;
+    width: 100%;
+    background-color: #fff;
+}
+.navbar{
+    width: 100%;
+    height: 60px;
+    /* max-width: 1600px; */
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.navbar .navbar_left{
+    display: flex;
+    column-gap: 10rem;
+}
+.navbar .logo{
+    padding-left: 2rem;
+}
+.navbar .logo a{
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: -10px;
+}
+.navbar .links{
+    display: flex;
+    gap: 2rem;
+}
+.navbar .button_toggle{
+    color: #00525d;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding-left: 10px;
+    display: none;
+}
+.navbar .navbar_right{
+    display: flex;
+    column-gap: 20px;
+    padding-right: 10px;
+}
+
+
+/* DROPDOWN MENU */
+
+.dropdownMenu{
+    position: absolute;
+    display: none;
+    top: 60px;
+    height: 0;
+    padding-left: 10px;
+    width: 100%;
+    background: #fff;
+    transition: height 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow: hidden;
+}
+#navbar .open{
+    height: 200px;
+}
+.dropdownMenu li{
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Responsiveness */
+@media screen and (max-width : 1000px){
+    .navbar .navbar_left{
+        column-gap: 20px;
+    }
+    .navbar .navbar_left .links{
+        display: flex;
+        column-gap: 10px;
+    }
+}
+@media screen and (max-width : 650px){
+    .navbar .navbar_left{
+        column-gap: 10px;
+    }
+    .navbar .navbar_left .links{
+        display: none;
+    }
+    .navbar .logo{
+        padding-left: 0;
+    }
+    .navbar .button_toggle{
+        display: block;
+    }
+    .navbar .logo{
+        padding-top: 5px;
+    }
+    .dropdownMenu{
+        display: block;
+    }
+    
+}

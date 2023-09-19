@@ -6,6 +6,8 @@
     padding-top: 25px;
     height: 200px;
 }
+
+
 #heading h1{
     font-size: 5rem;
     font-family:'Times New Roman', Times, serif
@@ -16,71 +18,93 @@
 }
 #containerBtn{
     text-align: right;
+    padding-right: 20%;
 }
-#containerBtn > .btn{
+#containerBtn > input{
+    border: none;
+    outline: none;
     background-color: #f9fded;
-    width: 120px;
-    border-radius: 0;
+    padding: 5px;
+    border-radius: 20px;
 }
-
+#mainContent{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
 #filters{
     background-color: whitesmoke;
     padding: 10px;
     height: fit-content;
+    width: 25%;
+    
 }
 .filter_number > a{
     display: flex;
     justify-content: space-between;
 }
 .filter_number > .collapseEx > .card{
-    background-color: whitesmoke;
+    background-color: #fff;
     border: none;
     text-align: left;
+    cursor: pointer;
 }
-#card-list > .row{
-    /* display: grid;
+.filter_number > .collapseEx > .card:hover{
+    text-decoration: underline;
+    text-transform:uppercase;
+    color: #00525d;
+    font-weight: 600;
+}
+#card-list{
+    width: 70%;
+}
+#card-list > #card-list-wrapper{
+    display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 10px; */
+    gap: 10px;
     padding-left: 10px;
 }
-#card-list > .row > .card{
+#card-list > #card-list-wrapper > .card{
     border-radius: 0;
     padding: 10px;
     border: 3px solid whitesmoke;
 }
-#card-list > .row > .card .icon{
+#card-list > #card-list-wrapper > .card > .div-row1{
+    display: flex;
+    justify-content: space-between;
+}
+#card-list > #card-list-wrapper > .card .icon{
     font-size: x-large;
     text-align: right;
-    
+    transform: translateY(-10px);
 }
-#card-list > .row > .card .icon .fa-heart{
+#card-list > #card-list-wrapper > .card .icon .fa-heart{
     font-weight: 100;
     font-size: 20px;
     color: #00525d;
 }
-.changeHeartColor{
+/* .changeHeartColor{
     font-weight: 900;
     color: red;
-    
-}
-#card-list > .row > .card .image{
+} */
+#card-list > #card-list-wrapper > .card .image{
     width: 100px;
     height: 150px;
 }
-#card-list > .row > .card .price_div{
+#card-list > #card-list-wrapper > .card .price_div{
     display: flex;
     justify-content: center;
     column-gap: 10px;
 }
-#card-list > .row > .card .price_div .MRP{
+#card-list  > #card-list-wrapper > .card .price_div .MRP{
     text-decoration: line-through;
     opacity: 0.5;
 }
-#card-list > .row > .card .price_div .price{
+#card-list  > #card-list-wrapper > .card .price_div .price{
     color: #00525d;
     font-weight: 500;
 }
-#card-list > .row > .card .addToCart{
+#card-list > #card-list-wrapper > .card .addToCart{
     width: 100%;
     background-color: #00525d;
     color: white;
@@ -91,6 +115,8 @@
 #pagination-wrapper{
     display: flex;
     justify-content: center;
+    align-items: center;
+    text-align: center;
     padding: 10px 10px;
     column-gap:10px;
 }
@@ -101,6 +127,38 @@
     font-weight: 500;
     padding: 10px;
     border-radius: 10px;
-    
+}
+
+
+/* RESPONSIVENESS */
+@media screen and (max-width : 1100px){
+    #card-list > #card-list-wrapper{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media screen and (max-width : 750px){
+    #heading{
+        display: flex;
+    }
+    #heading h1{
+        font-size: 2rem;
+    }
+    #mainContent{
+        flex-direction: column;
+        row-gap: 20px;
+    }
+    #containerBtn > input{
+        width: 100%;
+        padding-right: 0;
+    }
+    #card-list,
+    #filters{
+        width: 100%;
+    }
+    #card-list > #card-list-wrapper{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+    }
     
 }

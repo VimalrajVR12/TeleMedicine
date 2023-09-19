@@ -35,8 +35,6 @@
 
 #child {
    text-align: center;
-
-
 }
 
 #child>h2 {
@@ -130,7 +128,6 @@
 }
 
 #delbtn {
-
    color: #1a6aa0;
    border: none;
    border-radius: 5px;
@@ -241,7 +238,7 @@
 }
 
 .meddoverlay {
-   position: fixed;
+   position: absolute;
    width: 100vw;
    height: 100vh;
    background-color: rgba(0, 0, 0, 0.5);
@@ -251,14 +248,13 @@
 }
 
 .meddcartdiv {
-   position: fixed;
+   position: absolute;
    top: 0;
-   left: 0;
+   right: 0;
    height: 100vh;
    z-index: 100;
    width: 400px;
    box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 30px 6px;
-  
 }
 .meddcartinnerdiv {
    display: none;

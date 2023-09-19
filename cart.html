@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>cart</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="./styles/cart.css">
+</head>
+
+<body style="font-family: inter, sans-serif">
+  <div id="cart_page">
+    <button onclick="showMedCart()">Cart</button>
+    <div class="medcart meddoverlay"></div>
+    <div class="medcart meddcartdiv" id="meddcartdiv">
+    <div class="meddcartinnerdiv">
+    <div class="parent">
+      <div style="display: flex; justify-content: space-between;">
+        <div style="display: flex; ">
+          <h3 style="margin: 15px 0px 0px 20px ;font-size: 20px; color: #1a6aa0;">Your Cart<span id="per"></span></h3>
+        </div>
+        <div>
+          <div style="padding: 18px 10px;">
+            <a href="#" style="color: #1a6aa0; font-size: 14px; text-decoration: none; font-weight: bold;"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+   
+    <div id="child">
+       <hr style="margin-top: 8px;">
+      <img style="margin-top: 20%;" src="https://assets.pharmeasy.in/web-assets/images/emptyCart.png">
+
+      <div style="color:  #1a6aa0;  font-size: 15px; margin-top: 3%;">Your Medicine/Healthcare cart is empty!</div>
+    
+      <div>
+        <button onclick="showMedCart()"
+          style="cursor: pointer; padding: 15px 30px; border: none;
+           margin-top: 10%; background-color:#48abec; color: black; font-size: 16px; font-weight: bold;">Buy Products</button>
+      </div>
+      <img style="width: 100%; margin-top: 50%; " src="https://www.netmeds.com/images/cms/aw_rbslider/slides/1689009790_Web_Home_Banner.jpg">
+
+    </div>
+    
+
+    <!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+    
+    <img id="pngImage" style="margin-top: 10px;" src="gst.png" alt="">
+    <div id="bagItems"></div>
+
+    
+    <div id="grandTotalParent">
+      <img src="cards.png" alt="">
+      <hr>
+      <div id="gandTotal">
+        <div>
+          <div style="color: #1a6aa0; font-weight: bold; font-size: 20px;">₹<span id="grandTotalPrice">0</span> </div>
+          <div style="color: #1a6aa0; font-size: 12px;"> Total amount <i class="fa fa-info-circle"></i></div>
+        </div>
+
+        
+        <div>
+         <a href="Address.html" style="text-decoration: none; color: white; "> <button style="cursor: pointer;width: 210px;border-radius: 5px; padding-left: 43px; height: 50px; border: 1px solid #1a6aa0; background-color: #1a6aa0; font-size: 16px; font-weight: bold; display: flex;
+          align-items: center"> Confirm Order <div style="padding: 0 0 0 50px;display: inline-block;"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+  
+  
+  <script src="./components/cart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>

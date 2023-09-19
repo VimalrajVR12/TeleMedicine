@@ -175,7 +175,9 @@
     background-color: #00525d;
     padding: 10px 30px;
     font-size: 20px;
-    margin: 0px 0px 70px 450px ;
+    /* margin: 0px 0px 70px 450px ; */
+    margin-bottom: 5%;
+    margin-left: 40%;
 }
 @media only screen and (max-width: 400px) {
     .hom7 p{

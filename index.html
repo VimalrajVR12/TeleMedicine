@@ -8,13 +8,16 @@
     <link rel="stylesheet" href="./styles/navbar.css">
     <link rel="stylesheet" href="./styles/index.css">
     <link rel="stylesheet" href= ./styles/footer.css>
+    <link rel="stylesheet" href="./styles/cart.css">
     <script src="./scripts/index.js"defer></script>
+    <script src="./components/cart.js"></script>
 </head>
 <body>
+    <div id="navbar_import" style="position: fixed; width: 100%; z-index: 499;">
+        
+    </div><br><br>
 
-    <div id="navbar_import"></div>
-
-<div class="home">
+    <div class="home">
     <div class="hom1">
         <img src="images/img-1.png" alt="1">
     </div>
@@ -122,9 +125,11 @@
         </div>
         <button id="btn-4">Submit</button>
     </div>
-</div>
+    </div>
+    
 
     <div id="footer_import"></div>
+<script src="./components/cart.js"></script>
 
 </body>
 <script type="module">
@@ -133,9 +138,32 @@
     let navbars = document.getElementById("navbar_import");
     navbars.innerHTML = navbar();
 
+    updateCartNumber();
+    function updateCartNumber(){
+        const cartNumber = document.querySelector(".cart-number");
+        //console.log(cartNumber);
+        let cartCount = JSON.parse(localStorage.getItem("productDetails"));
+        if(cartCount.length > 0)
+            cartCount = cartCount.length;
+        else
+            cartCount = 0;
+        //console.log(cartCount)
+        cartNumber.textContent = cartCount;
+        if(cartCount > 0)
+            cartNumber.classList.remove("hide");
+        else
+            cartNumber.classList.add("hide");
+    }
+
+
+    function locationChange(){
+        window.location.href = "./loginUI.html"
+    }
+
     import footer from "./scripts/footer.js";
     let footers = document.getElementById("footer_import");
     footers.innerHTML = footer();
+
 
     </script>
 </html>

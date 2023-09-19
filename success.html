@@ -5,26 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>shopping-completed</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: roboto, sans-serif;
+            /* background-color: aliceblue; */
+        }
 
-<style>body {
-    text-align: center;
-    font-family: roboto, sans-serif;
-    /* background-color: aliceblue; */
+        img {
+            width: 200px;
+        }
 
-}
-
-img {
-    width: 200px;
-}
-
-button {
-    background-color: #1a6aa0;
-    border:1px solid #1a6aa0;
-    color: white;
-    padding: 5px;
-    font-size: 16px;
-    border-radius: 6px;
-}</style>
+        button {
+            background-color: #1a6aa0;
+            border:1px solid #1a6aa0;
+            color: white;
+            padding: 5px;
+            font-size: 16px;
+            border-radius: 6px;
+        }
+    </style>
 </head>
 <body>
     <img src="https://us.v-cdn.net/6033805/uploads/NFFSMTHMR4G8/quaintlikelyflyingfish-max-1mb.gif" alt="">
@@ -41,6 +41,8 @@ button {
 document.getElementById("order").innerHTML = Math.round(Math.random()*3311000);
 
 function btn() {
+    let temp = [];
+    localStorage.setItem("productDetails", JSON.stringify(temp));
     location.replace("index.html")
 }
     </script>

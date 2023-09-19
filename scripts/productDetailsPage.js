@@ -1,17 +1,68 @@
+// navbar
+import navbar from "./navbar.js"
+let nav = document.getElementById("navbar");
+nav.innerHTML = navbar();
 
-import HandCream from "../components/handcream.js"
-console.log(HandCream);
+let user = localStorage.getItem("userName") || null;
 
-let dataId = localStorage.getItem("productDetails");
-console.log(dataId);
-let data = HandCream.filter((ele) => {return (ele.id == dataId)})[0];
-console.log(data);
+// if(user == null)
+//     userName.textContent = "Login In";
+// else
+//     userName.textContent = user
+
+// NAVBAR Ends
+
+// Footer Starts
+
+import footer from "./footer.js";
+let footers = document.getElementById("footer_import");
+footers.innerHTML = footer();
+
+// Footer ENDS
 
 
+// Product Details Start
 
-let secondRow = document.querySelector(".second_row");
-let thirdRow = document.querySelector(".third_row");
-displayData(data);
+let baseUrl = "https://telemedicineapi.onrender.com/";
+let usersURL = `${baseUrl}user`;
+let HandCreamUrl = `${baseUrl}handCream`;
+let id = localStorage.getItem("userId") || 1;
+let cart1 = (await getData(`${baseUrl}cart`));
+updateCartNumber();
+
+let secondRow = document.querySelector("#mainContent .second_row");
+let thirdRow = document.querySelector("#mainContent .third_row");
+
+let dataId = localStorage.getItem("productId");
+//console.log(dataId);
+fetchProduct(dataId);
+async function fetchProduct(id){
+    try {
+        let data = await fetch(`${HandCreamUrl}/${dataId}`);
+        data = await data.json();
+        //console.log(data);
+        displayData(data);
+    } catch (e) {
+        console.log(e);
+    }
+}
+//console.log(data);
+
+
+function updateCartNumber(){
+    const cartNumber = document.querySelector(".cart-number");
+    //console.log(cartNumber);
+    let cartCount = JSON.parse(localStorage.getItem("productDetails")) || 0;
+    if(cartCount != 0)
+        cartCount = cartCount.length;
+    
+    //console.log(cartCount)
+    cartNumber.textContent = cartCount;
+    if(cartCount > 0)
+        cartNumber.classList.remove("hide");
+    else
+        cartNumber.classList.add("hide");
+}
 
 function create(arg1, arg2, arg3="", arg4=""){
     let card = document.createElement(arg1);
@@ -45,6 +96,9 @@ function displayData(data){
 
     let btn = create("button", "");
     btn.textContent = "Add to Cart";
+    btn.style.backgroundColor = "#00525d";
+    btn.style.color = "white";
+    btn.addEventListener("click", () => { addToCart(data); })
 
     let wt = create("p", "");
     wt.textContent = data.weight;
@@ -86,10 +140,63 @@ function displayData(data){
     thirdRow.append(main1);
 }
 
+async function getData(url, query=""){
+    let res;
+    try {
+        res = await fetch(`${url}?userId=${id}&${query}`, {
+            method : "GET",
+            headers : { "Content-type" : "application/json" }
+        })
+        res = await res.json();
+        //console.log(res);
+        return res;
+    } catch (e) {
+        console.log(e)
+    }
+}
+
+async function addToCart(data){
+    try {
+        // let res = await getData(`${baseUrl}cart`, `name=${data.name}`);
+        // console.log(res);
+
+        // if(res.length > 0){
+        //     let obj = { quantity : res[0].quantity + 1 };
+        //     let post = await fetch(`${baseUrl}cart/${res[0].id}`, {
+        //         method : "PATCH",
+        //         headers : { "Content-type" : "application/json" },
+        //         body : JSON.stringify(obj),
+        //     })
+        //     post = await post.json();
+        //     console.log(post);
+        // }
+        // else{
+        //     let obj = { ...data, quantity : 1, userId : `${id}` };
+        //     console.log(obj);
+        //     let post = await fetch(`${baseUrl}cart`, {
+        //         method : "POST",
+        //         headers : { "Content-type" : "application/json" },
+        //         body : JSON.stringify(obj),
+        //     })
+        //     post = await post.json();
+        //     console.log(post);
+        // }
+        // cart1 = (await getData(`${baseUrl}cart`))
+        let temp = JSON.parse(localStorage.getItem("productDetails")) || [];
+        temp.push(data);
+        //console.log(temp);
+        localStorage.setItem("productDetails", JSON.stringify(temp));
+        updateCartNumber();
+    } catch (e) {
+        console.log(e);
+    }
+}
+
 
 // Zoom Image Functionalities
 
 $(document).ready(function() {
+    console.log("Zoom");
   $('.zoom').magnify();
 });
 

@@ -1,0 +1,64 @@
+#navbarSupportedContent .nav-link{
+    color: green;
+    margin-left: 20px;
+}
+#navbar-right{
+    display: flex;
+    column-gap: 20px;
+}
+#searchBox{
+    border: 1px solid black;
+    border-radius: 20px;
+    position: relative;
+}
+#searchBox > i{
+    padding-top: 10px;
+    padding-left: 5px;
+}
+#searchBox > input{
+    border: none;
+    background: transparent;
+}
+#searchBox > input:focus{
+    outline: none;
+    outline-color: transparent;
+}
+#navbar_cart{
+    display: flex;
+    flex-direction: row;
+    column-gap: 20px;
+}
+#navbar_cart > div{
+    padding: 5px;
+}
+#navbar_cart > div:nth-child(2){
+    background-color: #00525d;
+    border: 1px solid green;
+}
+#navbar_cart > div > i{
+    transform: translateZ(10px);
+}
+#navbar_cart > div > button{
+    border: none;
+    background-color: transparent;
+    color: white;
+}
+
+
+
+
+@media only screen and (max-width : 1000px){
+    #navbar_cart{
+        display: none;
+    }
+    .navbar-toggler{
+        display: flex;
+        column-gap: 10px;
+        box-shadow: none;
+        border: none;
+        background: transparent;
+    }
+    .navbar-toggler i{
+        padding-top: 5px;
+    }
+}

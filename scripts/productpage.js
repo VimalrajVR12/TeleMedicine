@@ -1,25 +1,67 @@
-import HandCream from "../components/handcream.js"
+// navbar
+import navbar from "./navbar.js"
+let nav = document.getElementById("navbar");
+nav.innerHTML = navbar();
 
 
-let id = localStorage.getItem("userId") || 1;
+
+// NAVBAR Ends
+
+// Footer Starts
+
+import footer from "./footer.js";
+let footers = document.getElementById("footer_import");
+footers.innerHTML = footer();
+
+// Footer ENDS
+
+
+
 let baseUrl = "https://telemedicineapi.onrender.com/";
 let usersURL = `${baseUrl}user`;
-let HandCreamUrl = `${baseUrl}handCream`;
+let HandCreamUrl = `${baseUrl}HandCream`;
+let id = localStorage.getItem("userId") || 1;
 
 let params = "";
 let pageNumber = 1;
 let curPage = 1;
 let limit = 12;
 let brand;
-let wishList = (await getData(`${usersURL}`)).wishlist;
-console.log(wishList);
-let cart = (await getData(`${usersURL}`)).cart;
-console.log(cart);
-
+let wishList = (await getData(`${baseUrl}wishlist`))
+//console.log(wishList);
+// let cart1 = (await getData(`${baseUrl}cart`))
+// console.log(cart1);
+fetchData(HandCreamUrl)
 
 let mainCard = document.getElementById("card-list");
 let productList = document.getElementById("card-list-wrapper");
 let paginationWrapper = document.getElementById("pagination-wrapper");
+let search = document.getElementById("searchbar");
+let timer;
+
+function updateCartNumber(){
+    const cartNumber = document.querySelector(".cart-number");
+    //console.log(cartNumber);
+    let cartCount = JSON.parse(localStorage.getItem("productDetails")) || 0;
+    if(cartCount != 0)
+        cartCount = cartCount.length;
+
+    //console.log(cartCount)
+    cartNumber.textContent = cartCount;
+    if(cartCount > 0)
+        cartNumber.classList.remove("hide");
+    else
+        cartNumber.classList.add("hide");
+}
+updateCartNumber();
+
+// Search Function
+search.addEventListener("input", () => {
+    //console.log(search.value);
+    clearTimeout(timer);
+    params = `q=${search.value}`;
+    timer = setTimeout(() => { fetchData(`${HandCreamUrl}`) }, 1000)
+})
 
 // Sorting by Price
 let HightoLow = document.getElementById("priceDecs").addEventListener("click", ()=>{
@@ -60,65 +102,74 @@ function create(arg1, arg2, arg3="", arg4=""){
     return card;
 }
 
-fetchData(HandCreamUrl)
 async function fetchData(url, pageNumber = 1){
-    try {
-        let data = await fetch(`${url}?${params}&_page=${pageNumber}&_limit=${limit}`);
-        data = await data.json();
-        //console.log(data);
-        branding(url);
-        displayData(data);
-        pagination(url);
-    } catch (e) {
-        console.log(e);
-    }
+  try {
+      let data = await fetch(`${url}?${params}&_page=${pageNumber}&_limit=${limit}`);
+      data = await data.json();
+      //console.log(data);
+      branding(url);
+      displayData(data);
+      pagination(url);
+  } catch (e) {
+      console.log(e);
+  }
 }
 
-function check(wishList, name){
-    let check = wishList.filter(data => {return (data.name == name)});
-    let icon;
-    if(check.length > 0){
-        icon = `<i class="fa-solid fa-heart" style="color:red; font-weight:900"></i>`;
-    }
+function check1(name){
+    let check = wishList.filter((ele) => { return (ele.name == name) });
+    //console.log(check, name, check.length > 0);
+    if(check.length > 0)
+        return true;
     else
-        icon = `<i class="fa-solid fa-heart"></i>`;
-    return icon;
+        return false;
 }
 
 function displayData(data){
     mainCard.innerHTML = "";
-    let r1 = create("div", "row");
+    productList.innerHTML = "";
+    // let r1 = create("div", "row");
 
     data.map((ele) => {
-        let card = create("div", "card col-lg-4 col-md-6 col-sm-12 ", "", "");
+        let card = create("div", "card", "", "");
         card.addEventListener("click", () => {
-            localStorage.setItem("productDetails", ele.id);
+            localStorage.setItem("productId", ele.id);
             window.location.href = "productDetailspage.html";
         })
 
         let div1 = create("div", "div-row1", "", "");
 
+        let ratings = create("div", "", "id", "ratings");
+        ratings.textContent = `${ele.ratings}`
+        ratings.style.display = "flex";
+        
+        let star = create("p", "");
+        star.innerHTML = `<i class="fa-solid fa-star" style="color: orange;"></i>`;
+
+        ratings.append(star);
+
         let temp = create("div", "icon", "", "");
-        let icon = check(wishList, ele.name);
-        temp.innerHTML = icon;
-        console.log()
+        if(check1(ele.name))
+            temp.innerHTML = `<i class="fa-solid fa-heart" style="color:red; font-weight:900"></i>`;
+        else
+            temp.innerHTML = `<i class="fa-solid fa-heart"></i>`;
         temp.addEventListener("click", (event) => { 
             event.stopPropagation();
-            if(icon == check(wishList, ele.name)){
-                temp.innerHTML = "";
-                icon = check(wishList, ele.name);
-                temp.innerHTML = icon;
-                addToWishlist(ele);
-            }
-            else{
-                temp.innerHTML = "";
-                icon = check(wishList, ele.name);
-                temp.innerHTML = icon;
+            if(check1(ele.name)){
+                temp.innerHTML = `<i class="fa-solid fa-heart"></i>`;
                 deleteFromWishlist(ele);
             }
+            else{
+                temp.innerHTML = `<i class="fa-solid fa-heart" style="color:red; font-weight:900"></i>`;
+                addToWishlist(ele);
+            }
         });
-
-        div1.append(temp);
+        if(ele.ratings){
+            div1.append(ratings, temp);
+        }
+        else{
+            temp.style.textAlign = "right"
+            div1.append(temp);
+        }
 
         let div2 = create("div", "div-row2", "", "");
 
@@ -157,8 +208,8 @@ function displayData(data){
         div4.append(btn);
 
         card.append(div1, div2, div3, div4);
-        r1.append(card);
-        mainCard.append(r1);
+        productList.append(card)
+        mainCard.append(productList);
     })
 
 }
@@ -223,10 +274,10 @@ function selectBrand(ele){
     fetchData(HandCreamUrl);
 }
 
-async function getData(url){
+async function getData(url, query=""){
     let res;
     try {
-        res = await fetch(`${url}/${id}`, {
+        res = await fetch(`${url}?userId=${id}&${query}`, {
             method : "GET",
             headers : { "Content-type" : "application/json" }
         })
@@ -240,21 +291,15 @@ async function getData(url){
 
 async function addToWishlist(data){
     try {
-        let res = await getData(usersURL);
-        console.log(res);
-
-        res.wishlist.push(data);
-        //console.log(res);
-
-        let obj = { wishlist : res.wishlist };
-        let post = await fetch(`${usersURL}/${id}`, {
-            method : "PATCH",
+        let obj = { ...data, userId : `${id}` };
+        let post = await fetch(`${baseUrl}wishlist`, {
+            method : "POST",
             headers : { "Content-type" : "application/json" },
             body : JSON.stringify(obj),
         })
         post = await post.json();
-        console.log(post);
-        wishList = (await getData(`${usersURL}`)).wishlist;
+        //console.log(post);
+        wishList = (await getData(`${baseUrl}wishlist`));
         
     } catch (e) {
         console.log(e);
@@ -262,37 +307,52 @@ async function addToWishlist(data){
 }
 
 async function deleteFromWishlist(data){
-    let parent = (await getData(`${usersURL}`)).wishlist;
-    console.log(parent);
-    let ans = parent.filter((ele) => { return ele.name != data.name });
-    console.log(ans);
 
-    let obj = { wishlist : ans};
-    let post = await fetch(`${usersURL}/${id}`, {
-        method : "PATCH",
+    let data1 = await getData(`${baseUrl}wishlist`, `name=${data.name}`);
+    data1 = data1[0];
+    //console.log(data1);
+    let post = await fetch(`${baseUrl}wishlist/${data1.id}`, {
+        method : "DELETE",
         headers : { "Content-type" : "application/json" },
-        body : JSON.stringify(obj),
     })
     post = await post.json();
-    console.log(post);
-    wishList = (await getData(`${usersURL}`)).wishlist;
+    //console.log(post);
+    wishList = (await getData(`${baseUrl}wishlist`)).data;
 }
 
 async function addToCart(data){
     try {
-        let res = await getData(usersURL);
-        res.cart.push(data);
-        console.log(res);
+        // let res = await getData(`${baseUrl}cart`, `name=${data.name}`);
+        // console.log(res);
 
-        let obj = { wishlist : res.wishlist };
-        let post = await fetch(`${usersURL}/${id}`, {
-            method : "PATCH",
-            headers : { "Content-type" : "application/json" },
-            body : JSON.stringify(obj),
-        })
-        post = await post.json();
-        console.log(post);
-        
+        // if(res.length > 0){
+        //     let obj = { quantity : res[0].quantity + 1 };
+        //     let post = await fetch(`${baseUrl}cart/${res[0].id}`, {
+        //         method : "PATCH",
+        //         headers : { "Content-type" : "application/json" },
+        //         body : JSON.stringify(obj),
+        //     })
+        //     post = await post.json();
+        //     console.log(post);
+        // }
+        // else{
+        //     let obj = { ...data, quantity : 1, userId : `${id}` };
+        //     console.log(obj);
+        //     let post = await fetch(`${baseUrl}cart`, {
+        //         method : "POST",
+        //         headers : { "Content-type" : "application/json" },
+        //         body : JSON.stringify(obj),
+        //     })
+        //     post = await post.json();
+        //     console.log(post);
+        // }
+        // cart1 = (await getData(`${baseUrl}cart`))
+        // localStorage.setItem("productDetails", JSON.stringify(cart1));
+        let temp = JSON.parse(localStorage.getItem("productDetails")) || [];
+        temp.push(data);
+        //console.log(temp);
+        localStorage.setItem("productDetails", JSON.stringify(temp));
+        updateCartNumber();
     } catch (e) {
         console.log(e);
     }

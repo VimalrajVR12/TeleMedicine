@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Sign up</title>
+    <link rel="stylesheet" href="./styles/login.css">
+    <link rel="stylesheet" href="./styles/navbar.css">
+    <link rel="stylesheet" href="./styles/cart.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://kit.fontawesome.com/b48f583750.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <div id="navbar" style="position: fixed; width: 100%;">
+        <!-- <div class="navbar">
+            <div class="navbar_left">
+                <div class="button_toggle">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+                <div class="logo"><a href="./index.html">TELE MEDICINE</a></div>
+                <ul class="links">
+                    <li><a href="">Medicines</a></li>
+                    <li><a href="">Doctors</a></li>
+                    <li><a href="">Pharmacy</a></li>
+                    <li><a href="">Other Services</a></li>
+                </ul>
+            </div>
+            <div class="navbar_right">
+                <ul class="user"><li><a href="">SignIn</a></li></ul>
+                <div><i class="fa-solid fa-cart-shopping"></i></div>
+            </div>
+        </div>
+        <div class="dropdownMenu">
+            <li><a href="">Medicines</a></li>
+            <li><a href="">Doctors</a></li>
+            <li><a href="">Pharmacy</a></li>
+            <li><a href="">Other Services</a></li>
+        </div> -->
+    </div>
+
+    <div id="form">
+        <div class="container" id="mainContent">
+            <input type="checkbox" id="hidden-btn">
+            <div class="signup">
+                <label for="">Sign up</label>
+                <input type="text" placeholder="First Name" id="SignupFirstName">
+                <input type="text" placeholder="Last Name" id="SignupLastName">
+                <input type="email" placeholder="Email" id="SignupEmail">
+                <div id="passwordField">
+                    <input type="password" placeholder="Password" id="SignupPassword">
+                    <i class="fa-solid fa-eye-slash" id="SignupeyeIcon"></i>
+                </div>
+                <div id="passwordField">
+                    <input type="password" placeholder="Confirm Password" id="SignupConfirmPassword">
+                    <i class="fa-solid fa-eye-slash" id="SignupConfirmeyeIcon"></i>
+                </div>
+                <button id="create-account-button">Sign up</button><br>
+                <div id="userCheck"></div>
+            </div>
+    
+            <div class="login">
+                <label for="hidden-btn">Login</label>
+                <input type="email" placeholder="Email" id="SigninEmail">
+                <div id="passwordField">
+                    <input type="password" placeholder="Password" id="SigninPassword">
+                    <i class="fa-solid fa-eye-slash" id="SignineyeIcon"></i>
+                </div>
+                <button id="signin-button">Login</button><br>
+    
+                <div id="info"></div>
+            </div>
+            <div id="popup-container">
+                <div class="popup" id="popup">
+                    <img src="https://www.pngall.com/wp-content/uploads/9/Green-Tick-Vector-PNG-Images.png" alt="">
+                    <h2>Login Successful</h2>
+                    <p>You will be redirected in <span id="seconds">5</span> seconds</p>
+                    <button type="button" id="closeBtn">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer">
+
+    </div>
+    <script src="./components/cart.js"></script>
+</body>
+<script src="./scripts/login.js" type="module"></script>
+
+</html>
